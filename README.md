@@ -7,7 +7,7 @@ This implementation takes in two rectified images and computes the disparity bet
 ### Disparity 
 Disparity refers to the distance between two corresponding points in the left and right image of a stereo pair or between two consecutive images from a monocular camera in which you would have to perform triangulation. If you look at the image below you see a labelled point X (ignore X1, X2 & X3). By following the dotted line from X to OL you see the intersection point with the left hand plane at XL. The same principal applies with the right-hand image plane.
 
-
+![Diaparity](assets/disparity_theory.png "Disparity")
 
 If X projects to a point in the left frame XL = (u,v) and to the right frame at XR = (p,q) you can find the disparity for this point as the magnitude of the vector between (u,v) and (p,q). Obviously this process involves choosing a point in the left hand frame and then finding its match (often called the corresponding point) in the right hand image; often this is a particularly difficult task to do without making a lot of mistakes.
 
@@ -19,6 +19,8 @@ The algorithm or the steps that I follow to compute disparity images are as foll
 - Populate keypoints or detect keypoints. I consider each pixel of both the left and right image as a keypoint. This will generate a dense disparity image.
 - Extract the detected features using [ORB descriptor](https://medium.com/software-incubator/introduction-to-orb-oriented-fast-and-rotated-brief-4220e8ec40cf).
 - Now, for descriptor matching we need to know if the images are rectified or not. The given images seem to be rectified since the corresponding point of the left image lies on the same line in the right image. this is shown below. This is simply done by writing a simple callback function with a mouse click.
+
+![Epipolar](assets/epipolar_1.png "Epipolar") ![Epipolar](assets/epipolar_1.png "Epipolar")
 - For descriptor matching I use the `L1_norm(D1(i,j), D2(i-d, j))` to compute the cost between point in left and point in right image. Where `D1` is the descriptor for `point (i, j)` in left image and and `point(i-d, j)` in the right image. Here `d` is the parameter entered by user resulting in the best disparity image. In our case `d = 256` works the best.
 - Once best descriptor match is found the disparity is computed and stored in an empty opencv image.
 - This process is done for each keypoint i.e. each pixel in the left/ first image. 
