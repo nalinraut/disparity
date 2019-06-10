@@ -43,7 +43,7 @@ The resulting disparity image is shown below.
 
 ![Diaparity_Result](assets/disparity_result_w3.png "Disparity w = 3")
 
-### w = 
+### w = 5
 
 ![Diaparity_Result](assets/disparity_result_w5.png "Disparity w = 5")
 
