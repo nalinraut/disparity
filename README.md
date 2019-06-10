@@ -7,7 +7,7 @@ This implementation takes in two rectified images and computes the disparity bet
 ### Disparity 
 Disparity refers to the distance between two corresponding points in the left and right image of a stereo pair or between two consecutive images from a monocular camera in which you would have to perform triangulation. If you look at the image below you see a labelled point X (ignore X1, X2 & X3). By following the dotted line from X to OL you see the intersection point with the left hand plane at XL. The same principal applies with the right-hand image plane.
 
-
+![Diaparity]assets/disparity_theory.png "Disparity")
 
 If X projects to a point in the left frame XL = (u,v) and to the right frame at XR = (p,q) you can find the disparity for this point as the magnitude of the vector between (u,v) and (p,q). Obviously this process involves choosing a point in the left hand frame and then finding its match (often called the corresponding point) in the right hand image; often this is a particularly difficult task to do without making a lot of mistakes.
 
