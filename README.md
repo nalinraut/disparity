@@ -20,7 +20,8 @@ The algorithm or the steps that I follow to compute disparity images are as foll
 - Extract the detected features using [ORB descriptor](https://medium.com/software-incubator/introduction-to-orb-oriented-fast-and-rotated-brief-4220e8ec40cf).
 - Now, for descriptor matching we need to know if the images are rectified or not. The given images seem to be rectified since the corresponding point of the left image lies on the same line in the right image. this is shown below. This is simply done by writing a simple callback function with a mouse click.
 
-![Epipolar](assets/epipolar_1.png "Epipolar") ![Epipolar](assets/epipolar_1.png "Epipolar")
+![Epipolar](assets/epipolar.png "Epipolar") 
+
 - For descriptor matching I use the `L1_norm(D1(i,j), D2(i-d, j))` to compute the cost between point in left and point in right image. Where `D1` is the descriptor for `point (i, j)` in left image and and `point(i-d, j)` in the right image. Here `d` is the parameter entered by user resulting in the best disparity image. In our case `d = 256` works the best.
 - Once best descriptor match is found the disparity is computed and stored in an empty opencv image.
 - This process is done for each keypoint i.e. each pixel in the left/ first image. 
