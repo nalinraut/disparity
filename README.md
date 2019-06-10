@@ -34,6 +34,19 @@ The algorithm or the steps that I follow to compute disparity images are as foll
 ## Results
 The resulting disparity image is shown below. 
 
+### For w = 0 
+
+![Diaparity_Result](assets/disparity_result_w0.png "Disparity w = 0")
+
+
+### w = 3
+
+![Diaparity_Result](assets/disparity_result_w3.png "Disparity w = 3")
+
+### w = 
+
+![Diaparity_Result](assets/disparity_result_w5.png "Disparity w = 5")
+
 
 
 ## Implementation
